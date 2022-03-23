@@ -17,12 +17,10 @@ class GUI:
     """Taichi Graphical User Interface class.
 
     Args:
-        name (str, optional): The name of the GUI to be constructed.
-            Default is 'Taichi'.
-        res (Union[int, List[int]], optional): The resolution of created
-            GUI. Default is 512*512. If `res` is scalar, then width will be equal to height.
-        background_color (int, optional): The background color of created GUI.
-            Default is 0x000000.
+        name (str, optional): Name of the GUI. Default is 'Taichi'.
+        res (Union[int, List[int]], optional): Resolution of the GUI. Default
+            is 512*512. The width will be equal to the height if an integer is given.
+        background_color (int, optional): Background color. Default is 0x000000 (black).
         show_gui (bool, optional): Specify whether to render the GUI. Default is True.
         fullscreen (bool, optional): Specify whether to render the GUI in
             fullscreen mode. Default is False.
@@ -30,8 +28,13 @@ class GUI:
             Taichi. Default is False.
 
     Returns:
-        :class:`~taichi.misc.gui.GUI` :The created taichi GUI object.
+        :class:`~taichi.GUI` :The created taichi GUI object.
 
+    Example::
+
+        >>> gui = ti.GUI("hello world", res=(512, 512))
+        >>> while gui.running:
+        >>>     gui.show()
     """
     class Event:
         def __init__(self):
